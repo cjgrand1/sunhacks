@@ -3,7 +3,7 @@ import React from 'react';
 import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
-  // Where the flight data is pulled from; check it out sometime
+  // Here is where the flight data is pulled from; check it out sometime
   // https://test-flight-data.herokuapp.com/flights?date=2020-01-01
   const [flights, setFlights] = React.useState<any[]>([]);
 
@@ -20,6 +20,12 @@ const Home: NextPage = () => {
     fetchFlights();
   }, []);
 
+function input() {
+  const num = (document.getElementById("inputField") as HTMLFormElement).value;
+  alert(num);
+}
+  
+
   return <div>
     <head>
       <title>Webpage</title>
@@ -34,10 +40,12 @@ const Home: NextPage = () => {
       </h1>
 
       <div>
-        <form action="asu.edu">
-        <label>Enter flight number: </label>
-        <input type="text"></input>
-        </form>
+        
+          <label id="inputLable">Enter flight number:&emsp;</label>
+          <input id="inputField" type="text"></input>
+          <button onClick={input}>button</button>
+
+          
       </div>
 
       <p className={styles.description}>
@@ -53,6 +61,7 @@ const Home: NextPage = () => {
     
     <h1>test2</h1>
     </main>
+    <footer>Sunhacks 2021</footer>
   </div>; //this should all just be html/css coding, so we can figure something out
 };
 
