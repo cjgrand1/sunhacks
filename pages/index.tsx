@@ -22,8 +22,18 @@ const Home: NextPage = () => {
 
 function input() { // functions to determine user input
   const num = (document.getElementById("inputField") as HTMLFormElement).value;
-  alert(num);
-  (document.getElementById("airline") as HTMLFormElement).innerHTML = "Airline id: " + num;
+  alert(num); //test if working properly
+  (document.getElementById("airline") as HTMLFormElement).innerHTML = "Flight number: " + num;
+
+  // filter by user input
+  const results = flights.filter(flight => flight.flightNumber === num);
+
+  //(document.getElementById("testt") as HTMLFormElement).innerHTML = "text " + results[0]?.flight.origin.code;
+
+
+  //prints origin code to console
+  console.log(results[0].origin.code);
+
 }
   
 
@@ -55,10 +65,11 @@ function input() { // functions to determine user input
       </p>
 
       <div>
-        <p id="airline">Airline id:&emsp;</p>
+        <p id="airline">Flight number:&emsp;</p>
+        <p id="testt">something</p>
       </div>
 
-      
+      {flights[0]?.origin.code}
       
       {flights.map((flight) => (
         <p key={flight.flightNumber}>{flight.flightNumber} - {flight.origin.code}</p>
