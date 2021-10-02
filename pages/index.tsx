@@ -8,7 +8,7 @@ const Home: NextPage = () => {
   const [flights, setFlights] = React.useState<any[]>([]);
 
   // American Airlines uses typescript instead of Javascript, so I have no idea what's happening
-  React.useEffect(() => {
+  React.useEffect(() => { // adds the flight data to the program
     const fetchFlights = async () => {
       const res = await fetch('https://test-flight-data.herokuapp.com/flights?date=2020-01-01');
 
@@ -20,7 +20,7 @@ const Home: NextPage = () => {
     fetchFlights();
   }, []);
 
-function input() {
+function input() { // functions to determine user input
   const num = (document.getElementById("inputField") as HTMLFormElement).value;
   alert(num);
   (document.getElementById("airline") as HTMLFormElement).innerHTML = "Airline id: " + num;
