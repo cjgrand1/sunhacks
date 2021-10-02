@@ -1,7 +1,5 @@
 import type { NextPage } from 'next'
 import React from 'react';
-import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
@@ -22,16 +20,25 @@ const Home: NextPage = () => {
     fetchFlights();
   }, []);
 
-  return <div className={styles.container}>
+  return <div>
     <head>
-      <title>WEBPAGE</title>
-      <p>test</p>
+      <title>Webpage</title>
     </head>
-
+    <div>
+      <h1>Text</h1>
+    </div>
+    
     <main className={styles.main}>
       <h1 className={styles.title}>
         <p>TITLE</p>
       </h1>
+
+      <div>
+        <form action="asu.edu">
+        <label>Enter flight number: </label>
+        <input type="text"></input>
+        </form>
+      </div>
 
       <p className={styles.description}>
         Get started by editing{' '}
@@ -40,7 +47,9 @@ const Home: NextPage = () => {
 
       
       
-      {flights[0]?.flightNumber}
+      {flights.map((flight) => (
+        <p key={flight.flightNumber}>{flight.flightNumber} - {flight.origin.code}</p>
+      ))}
     
     <h1>test2</h1>
     </main>
