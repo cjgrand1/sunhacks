@@ -23,10 +23,18 @@ const Home: NextPage = () => {
   }, []);
 
   return <div className={styles.container}>
-    {flights.map(flight => (
-      // Changing this changes the output
-    <p key={flight.flightNumber}>flight number: {flight.flightNumber} from {flight.origin.city} to {flight.destination.city}</p>
-    ))}
+    <head>
+      
+      <p>test</p>
+    </head>
+    <main className={styles.main}>
+      <h1 className={styles.title}>
+        <p>TITLE</p>
+      </h1>
+      {flights[0]?.flightNumber}
+    
+    <h1>test2</h1>
+    </main>
   </div>; //this should all just be html/css coding, so we can figure something out
 };
 
