@@ -40,7 +40,9 @@ const Home: NextPage = () => {
 
       
       
-      {flights[0]?.flightNumber}
+      {flights.map((flight) => (
+        <p key={flight.flightNumber}>{flight.flightNumber} - {flight.origin.code}</p>
+      ))};
     
     <h1>test2</h1>
     </main>
