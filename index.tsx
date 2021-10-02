@@ -4,6 +4,8 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
+//hello from the other side
+
 const Home: NextPage = () => {
   // https://test-flight-data.herokuapp.com/flights?date=2020-01-01
   const [flights, setFlights] = React.useState<any[]>([]);
