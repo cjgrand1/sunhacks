@@ -5,9 +5,11 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
+  // Where the flight data is pulled from; check it out sometime
   // https://test-flight-data.herokuapp.com/flights?date=2020-01-01
   const [flights, setFlights] = React.useState<any[]>([]);
 
+  // American Airlines uses typescript instead of Javascript, so I have no idea what's happening
   React.useEffect(() => {
     const fetchFlights = async () => {
       const res = await fetch('https://test-flight-data.herokuapp.com/flights?date=2020-01-01');
@@ -22,9 +24,10 @@ const Home: NextPage = () => {
 
   return <div className={styles.container}>
     {flights.map(flight => (
-    <p key={flight.flightNumber}>{flight.flightNumber} - {flight.origin.code}</p>
+      // Changing this changes the output
+    <p key={flight.flightNumber}>flight number: {flight.flightNumber} from {flight.origin.city} to {flight.destination.city}</p>
     ))}
-  </div>;
+  </div>; //this should all just be html/css coding, so we can figure something out
 };
 
 export default Home;
