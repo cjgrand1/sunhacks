@@ -23,7 +23,7 @@ const Home: NextPage = () => {
 function input() {
   const num = (document.getElementById("inputField") as HTMLFormElement).value;
   alert(num);
-  (document.getElementById("airline") as HTMLFormElement).innerHTML = "Airline id " + num;
+  (document.getElementById("airline") as HTMLFormElement).innerHTML = "Airline id: " + num;
 }
   
 
