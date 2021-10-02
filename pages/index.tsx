@@ -23,6 +23,7 @@ const Home: NextPage = () => {
 function input() {
   const num = (document.getElementById("inputField") as HTMLFormElement).value;
   alert(num);
+  (document.getElementById("airline") as HTMLFormElement).innerHTML = "Airline id " + num;
 }
   
 
@@ -53,6 +54,10 @@ function input() {
         <code className={styles.code}>pages/index.js</code>
       </p>
 
+      <div>
+        <p id="airline">Airline id:&emsp;</p>
+      </div>
+
       
       
       {flights.map((flight) => (
@@ -61,8 +66,8 @@ function input() {
     
     <h1>test2</h1>
     </main>
-    <footer>Sunhacks 2021</footer>
-  </div>; //this should all just be html/css coding, so we can figure something out
+    <footer>Sunhacks 2021 | Made by: Craig Grande, Name Name, and Name Name</footer>
+  </div>; // Put your names here
 };
 
 export default Home;
