@@ -24,13 +24,22 @@ const Home: NextPage = () => {
 
   return <div className={styles.container}>
     <head>
-      
+      <title>WEBPAGE</title>
       <p>test</p>
     </head>
+
     <main className={styles.main}>
       <h1 className={styles.title}>
         <p>TITLE</p>
       </h1>
+
+      <p className={styles.description}>
+        Get started by editing{' '}
+        <code className={styles.code}>pages/index.js</code>
+      </p>
+
+      
+      
       {flights[0]?.flightNumber}
     
     <h1>test2</h1>
