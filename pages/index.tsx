@@ -6,6 +6,7 @@ const Home: NextPage = () => {
   // Here is where the flight data is pulled from; check it out sometime
   // https://test-flight-data.herokuapp.com/flights?date=2020-01-01
   const [flights, setFlights] = React.useState<any[]>([]);
+  const [weather, setWeather] = React.useState<any[]>([]);
 
   // American Airlines uses typescript instead of Javascript, so I have no idea what's happening
   React.useEffect(() => { // adds the flight data to the program
@@ -16,8 +17,17 @@ const Home: NextPage = () => {
 
       setFlights(data);
     }
+    const fetchWeather = async () => { //if everything crashes, this is suspect 1
+      const res = await fetch('https://api.weather.gov/points/39.7456,-97.0892');
+
+      const data = await res.json();
+
+      setWeather(data);
+    }
 
     fetchFlights();
+
+    fetchWeather();
   }, []);
 
 function input() { // functions to determine user input
@@ -33,8 +43,7 @@ function input() { // functions to determine user input
   (document.getElementById("departure") as HTMLFormElement).innerHTML = "Departure time: " + results[0].departureTime;
 
 
-  //prints origin code to console
-  console.log(results[0].origin.code);
+  //console.log(results[0].origin.code); //prints origin code to console
 
   /** unused code
   {flights[0]?.origin.code}
@@ -78,6 +87,22 @@ function input() { // functions to determine user input
         <p id="start">Origin:&emsp;</p>
         <p id="end">Destination:&emsp;</p>
         <p id="departure">Departure time:&emsp;</p>
+      </div>
+
+      <div className={styles.grid}>
+        <div className={styles.card}>
+          <p id="airline">Flight number:&emsp;</p>
+          <p id="start">Origin:&emsp;</p>
+          <p id="end">Destination:&emsp;</p>
+          <p id="departure">Departure time:&emsp;</p>
+        </div>
+
+        <div className={styles.card}>
+          <p id="airline">Flight number:&emsp;</p>
+          <p id="start">Origin:&emsp;</p>
+          <p id="end">Destination:&emsp;</p>
+          <p id="departure">Departure time:&emsp;</p>
+          </div>
       </div>
 
       
