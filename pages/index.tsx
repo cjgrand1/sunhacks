@@ -17,20 +17,22 @@ const Home: NextPage = () => {
 
       setFlights(data);
     }
+    
+    fetchFlights();
+  }, []);
+  React.useEffect(() => {
     const fetchWeather = async () => { //if everything crashes, this is suspect 1
-      const res = await fetch('https://api.weather.gov/points/39.7456,-97.0892');
+      const res = await fetch('https://api.weather.gov/gridpoints/TOP/31,80/forecast');
 
       const data = await res.json();
 
       setWeather(data);
     }
 
-    fetchFlights();
-
     fetchWeather();
   }, []);
 
-function input() { // functions to determine user input
+  function input() { // functions to determine user input
   const num = (document.getElementById("inputField") as HTMLFormElement).value;
   //alert(num); //test if working properly
 
@@ -41,7 +43,8 @@ function input() { // functions to determine user input
   (document.getElementById("start") as HTMLFormElement).innerHTML = "Origin: " + results[0].origin.city;
   (document.getElementById("end") as HTMLFormElement).innerHTML = "Destination: " + results[0].destination.city;
   (document.getElementById("departure") as HTMLFormElement).innerHTML = "Departure time: " + results[0].departureTime;
-
+  (document.getElementById("weatherStart") as HTMLFormElement).innerHTML = "Weather: 87 f";
+  (document.getElementById("weatherEnd") as HTMLFormElement).innerHTML = "Weather: 92 f";
 
   //console.log(results[0].origin.code); //prints origin code to console
 
@@ -58,11 +61,7 @@ function input() { // functions to determine user input
   return <div>
     <head>
       <title>Webpage</title>
-    </head>
-    <div>
-      <h1>Text</h1>
-    </div>
-    
+    </head>    
     <main className={styles.main}>
       <h1 className={styles.title}>
         <p>TITLE</p>
@@ -73,41 +72,28 @@ function input() { // functions to determine user input
           <label id="inputLable">Enter flight number:&emsp;</label>
           <input id="inputField" type="text"></input>
           <button onClick={input}>button</button>
-
-          
       </div>
 
       <p className={styles.description}>
-        Get started by editing{' '}
         <code className={styles.code}>Numbers to try out: 3949, 4858, 6276</code>
       </p>
 
-      <div>
-        <p id="airline">Flight number:&emsp;</p>
-        <p id="start">Origin:&emsp;</p>
-        <p id="end">Destination:&emsp;</p>
-        <p id="departure">Departure time:&emsp;</p>
-      </div>
-
-      <div className={styles.grid}>
-        <div className={styles.card}>
+      <div className={styles.results}>
+        <div className={styles.dropshadow}>
+        <div className={styles.card2}>
           <p id="airline">Flight number:&emsp;</p>
           <p id="start">Origin:&emsp;</p>
-          <p id="end">Destination:&emsp;</p>
-          <p id="departure">Departure time:&emsp;</p>
+          <p id="weatherStart">Weather:&emsp;</p>
+         </div>
         </div>
-
-        <div className={styles.card}>
-          <p id="airline">Flight number:&emsp;</p>
-          <p id="start">Origin:&emsp;</p>
+        <div className={styles.dropshadow}>
+        <div className={styles.card2}>
           <p id="end">Destination:&emsp;</p>
-          <p id="departure">Departure time:&emsp;</p>
-          </div>
-      </div>
-
-      
-    
-    <h1>test2</h1>
+          <p id="departure">Departure time:<br></br></p>
+          <p id="weatherEnd">Weather:&emsp;</p>
+        </div>
+        </div>
+      </div>    
     </main>
     <footer>Sunhacks 2021 | Made by: Craig Grande, Name Name, and Name Name</footer>
   </div>; // Put your names here
