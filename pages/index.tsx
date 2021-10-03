@@ -144,7 +144,7 @@ const Home: NextPage = () => {
         </div>
       </div>    
     </main>
-    <footer>Sunhacks 2021 | Made by: Craig Grande</footer>
+    <footer>Sunhacks 2021 | Made by: Craig Grande and Haruki Miyazaki</footer>
   </div>; // Put your names here
 };
 
