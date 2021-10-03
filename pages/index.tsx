@@ -46,6 +46,37 @@ const Home: NextPage = () => {
   (document.getElementById("weatherStart") as HTMLFormElement).innerHTML = "Weather: 87 f";
   (document.getElementById("weatherEnd") as HTMLFormElement).innerHTML = "Weather: 92 f";
 
+  // animation :)
+  (document.getElementById('arrow1') as HTMLFormElement).animate([
+    // keyframes
+    {transform: 'translateX(0px)'},
+    {transform: 'translatex(75px)'}
+  ], {
+    // timing options
+    duration: 2000,
+    iterations: Infinity
+  });
+  (document.getElementById('arrow2') as HTMLFormElement).animate([
+    // keyframes
+    {transform: 'translateX(0px)'},
+    {transform: 'translatex(75px)'}
+  ], {
+    // timing options
+    duration: 2000,
+    delay: 200,
+    iterations: Infinity
+  });
+  (document.getElementById('arrow3') as HTMLFormElement).animate([
+    // keyframes
+    {transform: 'translateX(0px)'},
+    {transform: 'translatex(75px)'}
+  ], {
+    // timing options
+    duration: 2000,
+    delay: 400,
+    iterations: Infinity
+  });
+
   //console.log(results[0].origin.code); //prints origin code to console
 
   /** unused code
@@ -79,14 +110,23 @@ const Home: NextPage = () => {
       </p>
 
       <div className={styles.results}>
-        <div className={styles.dropshadow}>
+        <div className={styles.spacer}>
         <div className={styles.card2}>
           <p id="airline">Flight number:&emsp;</p>
           <p id="start">Origin:&emsp;</p>
           <p id="weatherStart">Weather:&emsp;</p>
          </div>
         </div>
-        <div className={styles.dropshadow}>
+        <div>
+          <div className={styles.spacer2}>
+          <div className={styles.card3}>
+            <h1 id='arrow1'>✈</h1>
+            <h1 id='arrow2'>✈</h1>
+            <h1 id='arrow3'>✈</h1>
+          </div>
+          </div>
+        </div>
+        <div className={styles.spacer1}>
         <div className={styles.card2}>
           <p id="end">Destination:&emsp;</p>
           <p id="departure">Departure time:<br></br></p>
@@ -95,7 +135,7 @@ const Home: NextPage = () => {
         </div>
       </div>    
     </main>
-    <footer>Sunhacks 2021 | Made by: Craig Grande, Name Name, and Name Name</footer>
+    <footer>Sunhacks 2021 | Made by: Craig Grande</footer>
   </div>; // Put your names here
 };
 
