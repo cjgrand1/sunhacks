@@ -22,18 +22,27 @@ const Home: NextPage = () => {
 
 function input() { // functions to determine user input
   const num = (document.getElementById("inputField") as HTMLFormElement).value;
-  alert(num); //test if working properly
-  (document.getElementById("airline") as HTMLFormElement).innerHTML = "Flight number: " + num;
+  //alert(num); //test if working properly
 
   // filter by user input
   const results = flights.filter(flight => flight.flightNumber === num);
 
-  //(document.getElementById("testt") as HTMLFormElement).innerHTML = "text " + results[0]?.flight.origin.code;
+  (document.getElementById("airline") as HTMLFormElement).innerHTML = "Flight number: " + num;
+  (document.getElementById("start") as HTMLFormElement).innerHTML = "Origin: " + results[0].origin.city;
+  (document.getElementById("end") as HTMLFormElement).innerHTML = "Destination: " + results[0].destination.city;
+  (document.getElementById("departure") as HTMLFormElement).innerHTML = "Departure time: " + results[0].departureTime;
 
 
   //prints origin code to console
   console.log(results[0].origin.code);
 
+  /** unused code
+  {flights[0]?.origin.code}
+      
+  {flights.map((flight) => (
+    <p key={flight.flightNumber}>{flight.flightNumber} - {flight.origin.code}</p>
+      ))}
+  */
 }
   
 
@@ -61,19 +70,17 @@ function input() { // functions to determine user input
 
       <p className={styles.description}>
         Get started by editing{' '}
-        <code className={styles.code}>pages/index.js</code>
+        <code className={styles.code}>Numbers to try out: 3949, 4858, 6276</code>
       </p>
 
       <div>
         <p id="airline">Flight number:&emsp;</p>
-        <p id="testt">something</p>
+        <p id="start">Origin:&emsp;</p>
+        <p id="end">Destination:&emsp;</p>
+        <p id="departure">Departure time:&emsp;</p>
       </div>
 
-      {flights[0]?.origin.code}
       
-      {flights.map((flight) => (
-        <p key={flight.flightNumber}>{flight.flightNumber} - {flight.origin.code}</p>
-      ))}
     
     <h1>test2</h1>
     </main>
