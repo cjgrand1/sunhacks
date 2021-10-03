@@ -37,7 +37,9 @@ const Home: NextPage = () => {
   //alert(num); //test if working properly
 
   // filter by user input
+  try {
   const results = flights.filter(flight => flight.flightNumber === num);
+  
 
   (document.getElementById("airline") as HTMLFormElement).innerHTML = "Flight number: " + num;
   (document.getElementById("start") as HTMLFormElement).innerHTML = "Origin: " + results[0].origin.city;
@@ -45,7 +47,7 @@ const Home: NextPage = () => {
   (document.getElementById("departure") as HTMLFormElement).innerHTML = "Departure time: " + results[0].departureTime;
   (document.getElementById("weatherStart") as HTMLFormElement).innerHTML = "Weather: 87 f";
   (document.getElementById("weatherEnd") as HTMLFormElement).innerHTML = "Weather: 92 f";
-
+  
   // animation :)
   (document.getElementById('arrow1') as HTMLFormElement).animate([
     // keyframes
@@ -54,7 +56,7 @@ const Home: NextPage = () => {
   ], {
     // timing options
     duration: 2000,
-    iterations: Infinity
+    iterations: 1
   });
   (document.getElementById('arrow2') as HTMLFormElement).animate([
     // keyframes
@@ -63,8 +65,8 @@ const Home: NextPage = () => {
   ], {
     // timing options
     duration: 2000,
-    delay: 200,
-    iterations: Infinity
+    delay: 300,
+    iterations: 1
   });
   (document.getElementById('arrow3') as HTMLFormElement).animate([
     // keyframes
@@ -73,9 +75,13 @@ const Home: NextPage = () => {
   ], {
     // timing options
     duration: 2000,
-    delay: 400,
-    iterations: Infinity
+    delay: 600,
+    iterations: 1
   });
+
+  } catch (Error) {
+    (document.getElementById("errorcatch") as HTMLFormElement).innerHTML = "Flight Number Not Found";
+  }
 
   //console.log(results[0].origin.code); //prints origin code to console
 
@@ -91,22 +97,25 @@ const Home: NextPage = () => {
 
   return <div>
     <head>
-      <title>Webpage</title>
+      <title>Flight Informer</title>
     </head>    
     <main className={styles.main}>
-      <h1 className={styles.title}>
-        <p>TITLE</p>
-      </h1>
+      <h1 className={styles.title}>Flight Informer</h1>
+      <h4>Learn what the weather will be like at your destination</h4>
 
       <div>
-        
+          <p></p>
           <label id="inputLable">Enter flight number:&emsp;</label>
           <input id="inputField" type="text"></input>
-          <button onClick={input}>button</button>
+          <button onClick={input}>confirm</button>
+      </div>
+      <div>
+        <h4 id="errorcatch"></h4>
       </div>
 
+
       <p className={styles.description}>
-        <code className={styles.code}>Numbers to try out: 3949, 4858, 6276</code>
+        <code className={styles.code}>Examples: 3949, 4858, 6276, 8889</code>
       </p>
 
       <div className={styles.results}>

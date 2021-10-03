@@ -60,7 +60,7 @@
 
 .title {
   margin: 0;
-  line-height: 1.15;
+  line-height: 1;
   font-size: 4rem;
 }
 
@@ -98,7 +98,7 @@
   margin: auto;
   width: 790px;
   overflow: auto;
-  margin-top: 25px;
+  margin-top: 0px;
 }
 
 @media screen and (max-width: 740px) {
